@@ -4,7 +4,7 @@ function getComputerChoice () { // Create a function that returns the computer's
 
     if (computerChoice < 0.34) { return("Rock");
         
-    } else if (computerChoice > 0.34 && computerChoice < 0.64) { return("Paper");
+    } else if (computerChoice > 0.34 && computerChoice < 0.67) { return("Paper");
 
     } else { return ("Scissors");
 
@@ -24,6 +24,15 @@ function getHumanChoice () { // Create a function that returns the player's choi
 
 }
 
-let humanScore = 0
-let computerScore = 0
+function playRound (humanChoice, computerChoice) {
+    if (humanChoice === computerChoice) { return("Draw!")
+        
+    } else if () {
+        
+    }
+}
 
+let humanScore = 0;
+let computerScore = 0;
+const humanSelection = getHumanChoice();
+const computerSelection = getComputerChoice();
