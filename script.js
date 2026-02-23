@@ -11,10 +11,10 @@ function getComputerChoice () { // Create a function that returns the computer's
     }
 }
 
-function getHumanChoice () {
+function getHumanChoice () { // Create a function that returns the player's choice by using a prompt
     let humanChoice = prompt("What's your move?");
 
-    if (humanChoice.toLowerCase() === "rock") { return("Rock");
+    if (humanChoice.toLowerCase() === "rock") { return("Rock"); // the .toLowerCase method was added so that any variation of the moves are valid, provided they're spelled correctly
         
     } else if (humanChoice.toLowerCase() === "paper") { return("Paper")
         
@@ -23,4 +23,7 @@ function getHumanChoice () {
     }
 
 }
+
+let humanScore = 0
+let computerScore = 0
 
