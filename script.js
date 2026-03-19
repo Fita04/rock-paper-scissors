@@ -11,7 +11,16 @@ let roundInstance = 0;
 
 let humanSelection; 
 
-let currentRoundResult;
+let currentRoundResult = document.createElement("li");
+results.appendChild(currentRoundResult);
+
+let roundText = document.createElement("span");
+roundText.textContent = "";
+currentRoundResult.appendChild(roundText);
+
+let gameResult = document.createElement("li");
+gameResult.textContent = "";
+currentRoundResult.appendChild(gameResult);
 
 
 let computerSelection = function () { 
@@ -30,24 +39,24 @@ let computerSelection = function () {
 function checkRoundWinner (human, computer) { 
     let resultOfRound = document.createElement("li");
 
-    if (human === computer) { console.log("Draw!");
+    if (human === computer) { roundText.textContent = `Draw! Player: ${humanScore} Computer: ${computerScore}`;
         
     } else if (human === "scissors" && computer === "rock" ) { 
-        console.log("Rock beats scissors! Computer wins!"); computerScore++; return(computerScore); 
+        computerScore++; roundText.textContent = `Rock beats scissors, computer wins! Player: ${humanScore} Computer: ${computerScore}`; return(computerScore); 
     } else if (human === "scissors" && computer === "paper" ) { 
-        console.log("Scissors beats paper! Player wins!"); humanScore++; return(humanScore);  
+        humanScore++; roundText.textContent = `Scissors beats paper, player wins! Player: ${humanScore} Computer: ${computerScore}`; return(humanScore);  
         
     } else if (human === "rock" && computer === "paper") { 
-        console.log("Paper beats rock! Computer wins!"); computerScore++; return(computerScore);  
+        computerScore++; roundText.textContent = `Paper beats rock, computer wins! Player: ${humanScore} Computer: ${computerScore}`; return(computerScore);  
     
     } else if (human === "rock" && computer === "scissors") { 
-        console.log ("Rock beats scissors! Player wins!"); humanScore++; return(humanScore);
+        humanScore++; roundText.textContent = `Rock beats scissors, player wins! Player: ${humanScore} Computer: ${computerScore}`; return(humanScore);
         
     } else if (human === "paper" && computer === "scissors") { 
-        console.log ("Scissors beats paper! Computer wins!"); computerScore++; return(computerScore); 
+        computerScore++; roundText.textContent = `Scissors beats paper, computer wins! Player: ${humanScore} Computer: ${computerScore}`; return(computerScore); 
 
     } else if (human === "paper" && computer === "rock") { 
-        console.log("Paper beats rock! Player wins!");  humanScore++; return(humanScore);
+        humanScore++; roundText.textContent = `Paper beats rock, player wins! Player: ${humanScore} Computer: ${computerScore}`; return(humanScore);
     
     }
 
@@ -56,11 +65,11 @@ function checkRoundWinner (human, computer) {
 function checkGameWinner () { 
     
     if (roundInstance === 5)
-        {if (humanScore > computerScore) { console.log("Player wins the game!"); roundInstance = 0; humanScore = 0; computerScore = 0;
+        {if (humanScore > computerScore) {roundInstance = 0; humanScore = 0; computerScore = 0; gameResult.textContent = "Player wins the game!"
         
-        } else if (computerScore > humanScore) { console.log("Computer wins!"); roundInstance = 0; humanScore = 0; computerScore = 0;
+        } else if (computerScore > humanScore) { roundInstance = 0; humanScore = 0; computerScore = 0; gameResult.textContent = "Computer wins the game!"
         
-        } else { console.log("It's a draw!"); roundInstance = 0; humanScore = 0; computerScore = 0;
+        } else { roundInstance = 0; humanScore = 0; computerScore = 0; gameResult.textContent = "It's a draw!"
         
         }
     }
@@ -85,5 +94,6 @@ buttons.forEach((button) => {
 
 
         return roundInstance;
+
     });
 });
